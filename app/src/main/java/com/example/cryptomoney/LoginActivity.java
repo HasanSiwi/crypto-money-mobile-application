@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
 
 								if (response.getString("success").equals("true"))
 								{
-
+									// get the user token of the current user and assign it to the static variable "user_token"
 									user_token = response.getJSONObject("result").getJSONObject("data").getString("token");
 
 									Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
