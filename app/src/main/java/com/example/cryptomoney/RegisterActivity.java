@@ -55,13 +55,6 @@ public class RegisterActivity extends AppCompatActivity {
 		errors = findViewById(R.id.error);
 	}
 
-	public boolean isValidEmailAddress(String email) {
-		String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
-		java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
-		java.util.regex.Matcher m = p.matcher(email);
-		return m.matches();
-	}
-
 	public void register_button(View view) {
 		if (password.getText().toString().isEmpty())
 			errors.setText("password can't be left empty");
@@ -80,7 +73,6 @@ public class RegisterActivity extends AppCompatActivity {
 			params.put("name", full_name.getText().toString());
 			params.put("password", password.getText().toString());
 			params.put("email", email.getText().toString());
-//			errors.setText("before request");
 
 			JSONObject parameters = new JSONObject(params);
 
@@ -133,4 +125,10 @@ public class RegisterActivity extends AppCompatActivity {
 		}
 	}
 
+	public boolean isValidEmailAddress(String email) {
+		String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+		java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+		java.util.regex.Matcher m = p.matcher(email);
+		return m.matches();
+	}
 }
