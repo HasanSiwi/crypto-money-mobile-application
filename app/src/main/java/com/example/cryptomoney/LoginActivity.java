@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 
 	Button register_button;
 	EditText email, password;
-	private TextView errors;
+	public TextView errors;
 
 	static String user_token = "";
 
@@ -125,6 +125,10 @@ public class LoginActivity extends AppCompatActivity {
 			// Access the RequestQueue through your singleton class.
 			MySingelton.getInstance(LoginActivity.this).addToRequsetQueue(jsonObjectRequest);
 		}
+	}
+
+	public String getUser_token() {
+		return user_token;
 	}
 
 	public boolean isValidEmailAddress(String email) {
