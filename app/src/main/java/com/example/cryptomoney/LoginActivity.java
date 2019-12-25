@@ -2,6 +2,7 @@ package com.example.cryptomoney;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -52,6 +53,9 @@ public class LoginActivity extends AppCompatActivity {
 		errors = findViewById(R.id.error);
 	}
 
+	public static String getUser_token(){
+		return user_token;
+	}
 
 	public void login_button(View view) {
 		if (password.getText().toString().isEmpty())
