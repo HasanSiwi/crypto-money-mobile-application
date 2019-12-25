@@ -2,6 +2,7 @@ package com.example.cryptomoney;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -52,6 +53,9 @@ public class LoginActivity extends AppCompatActivity {
 		errors = findViewById(R.id.error);
 	}
 
+	public static String getUser_token(){
+		return user_token;
+	}
 
 	public void login_button(View view) {
 		if (password.getText().toString().isEmpty())
@@ -125,72 +129,6 @@ public class LoginActivity extends AppCompatActivity {
 			// Access the RequestQueue through your singleton class.
 			MySingelton.getInstance(LoginActivity.this).addToRequsetQueue(jsonObjectRequest);
 		}
-	}
-
-	public void logout_button(View view) {
-
-		String url = "http://10.0.2.2:8000/api/logout";
-		Map<String, String> params = new HashMap();
-		params.put("password", password.getText().toString());
-
-		JSONObject parameters = new JSONObject(params);
-
-		JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-				(Request.Method.POST, url, parameters, new Response.Listener<JSONObject>() {
-
-					@Override
-					public void onResponse(JSONObject response) {
-
-						try {
-
-							if (response.getString("success").equals("true"))
-							{
-								// Empty the user token
-								user_token = "";
-
-								String message = response.getString("message");
-								Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-
-								// kill the login and register activities.
-								intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-								// start the new activity
-								startActivity(intent);
-
-							} else {
-								JSONObject result = response.getJSONObject("result");
-								JSONArray names = result.names();
-
-								ArrayList<String> list = new ArrayList<String>();
-
-								if (names != null) {
-									int len = names.length();
-									for (int i = 0; i < len; i++) {
-										list.add(names.get(i).toString());
-									}
-								}
-
-								String error_message = "";
-								for (String name : list) {
-									error_message += result.getJSONArray(name).opt(0).toString();
-									errors.setText(error_message);
-								}
-							}
-
-						} catch (JSONException e) {
-							errors.setText(e.getMessage());
-						}
-					}
-				}, new Response.ErrorListener() {
-
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						error.printStackTrace();
-					}
-				});
-
-		// Access the RequestQueue through your singleton class.
-		MySingelton.getInstance(LoginActivity.this).addToRequsetQueue(jsonObjectRequest);
-
 	}
 
 	public boolean isValidEmailAddress(String email) {
