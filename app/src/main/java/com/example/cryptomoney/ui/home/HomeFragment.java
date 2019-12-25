@@ -39,7 +39,8 @@ public class HomeFragment extends Fragment {
   JSONObject jsonObject;
   JSONArray jsonArray;
   CurrencyAdapter currencyAdapter;
-  ListView listView;
+  TransactionAdapter transactionAdapter;
+  ListView listView, listViewTwo;
   View root;
   LoginActivity loginActivity = new LoginActivity();
   String user_token = loginActivity.getUser_token();
@@ -50,6 +51,7 @@ public class HomeFragment extends Fragment {
     homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
     root = inflater.inflate(R.layout.fragment_home, container, false);
     listView = root.findViewById(R.id.listview);
+    listViewTwo = root.findViewById(R.id.listviewTwo);
     this.getCurrenciesInfo();
     this.getLastTransactions();
     return root;
@@ -122,8 +124,42 @@ public class HomeFragment extends Fragment {
 
             try {
               if (response.getString("success").equals("true")) {
-                JSONArray result = response.getJSONObject("result").getJSONArray("data");
-                
+                jsonArray = response.getJSONObject("result").getJSONArray("data");
+                transactionAdapter = new TransactionAdapter(getContext(), R.layout.row_layout);
+                listViewTwo.setAdapter(transactionAdapter);
+
+                try {
+                  int count = 0;
+                  String id, buying_rate, total, amount;
+                  String[] titles = new String[]{
+                      "id",
+                      "buying rate",
+                      "amount",
+                      "total"
+                  };
+
+                  total = titles[3];
+                  id = titles[0];
+                  buying_rate = titles[1];
+                  amount = titles[2];
+                  Transaction transaction = new Transaction(amount, buying_rate, total, id);
+                  transactionAdapter.add(transaction);
+
+                  while (count < jsonArray.length()) {
+                    JSONObject JO = jsonArray.getJSONObject(count);
+                    total = JO.getString("total");
+                    id = JO.getString("id");
+                    buying_rate = JO.getString("buying_rate");
+                    amount = JO.getString("amount");
+                    transaction = new Transaction(amount, buying_rate, total, id);
+                    transactionAdapter.add(transaction);
+                    count++;
+                  }
+
+                  Log.d("result", "reached the end");
+                } catch (JSONException e) {
+                  e.printStackTrace();
+                }
 
 
               } else {
