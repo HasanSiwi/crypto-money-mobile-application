@@ -1,9 +1,14 @@
 <resources>
-    <string name="app_name">Crypto Money</string>
-    <string name="slogan_text">Our aim is to make you rich</string>
-    <string name="login_button">Login</string>
-    <string name="register_button">Register</string>
-    <string name="full_name_input">Full Name</string>
-    <string name="email_input">Email</string>
-    <string name="password_input">Password</string>
+  <string name="app_name">Crypto Money</string>
+  <string name="title_home">Home</string>
+  <string name="title_transactions">Transactions</string>
+  <string name="title_currencies">Currencies</string>
+  <string name="title_profile">Profile</string>
+
+  <string name="slogan_text">Our aim is to make you rich</string>
+  <string name="login_button">Login</string>
+  <string name="register_button">Register</string>
+  <string name="full_name_input">Full Name</string>
+  <string name="email_input">Email</string>
+  <string name="password_input">Password</string>
 </resources>

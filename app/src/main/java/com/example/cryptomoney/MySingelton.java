@@ -1,13 +1,12 @@
 package com.example.cryptomoney;
 
 import android.content.Context;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
 public class MySingelton {
-    private static  MySingelton mInstance;
+    private static MySingelton mInstance;
     private RequestQueue requestQueue;
     private static Context context;
 

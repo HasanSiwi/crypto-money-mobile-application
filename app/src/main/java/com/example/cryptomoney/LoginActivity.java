@@ -1,29 +1,23 @@
 package com.example.cryptomoney;
 
 import android.content.Intent;
-import android.util.Log;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -89,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
 									// get the user token of the current user and assign it to the static variable "user_token"
 									user_token = response.getJSONObject("result").getJSONObject("data").getString("token");
 
-									Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+									Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
 									// kill the login and register activities.
 									intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
