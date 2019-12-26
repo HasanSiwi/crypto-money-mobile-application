@@ -18,4 +18,8 @@
     <string name="name_caonnot_be_empty">Tam ad boş bırakılamaz</string>
     <string name="email_cannot_be_empty">E-posta boş bırakılamaz</string>
     <string name="password_at_least">Şifre en az 8 karakter olmalıdır</string>
+    <string name="buying_rate">Satınalma oranı</string>
+    <string name="amount_title">Miktar</string>
+    <string name="total_title">Toplam</string>
+    <string name="main_portfolio">Ana Portföy</string>
 </resources>

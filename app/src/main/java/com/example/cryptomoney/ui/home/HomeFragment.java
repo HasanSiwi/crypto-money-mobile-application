@@ -131,11 +131,12 @@ public class HomeFragment extends Fragment {
                 try {
                   int count = 0;
                   String id, buying_rate, total, amount;
+
                   String[] titles = new String[]{
-                      "id",
-                      "buying rate",
-                      "amount",
-                      "total"
+                      getResources().getString(R.string.id_title),
+                      getResources().getString(R.string.buying_rate),
+                      getResources().getString(R.string.amount_title),
+                      getResources().getString(R.string.total_title)
                   };
 
                   total = titles[3];

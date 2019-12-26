@@ -21,4 +21,8 @@
     <string name="name_caonnot_be_empty">Full name can\'t be left empty</string>
     <string name="email_cannot_be_empty">Email can\'t be left empty</string>
     <string name="password_at_least">password must be at least 8 characters</string>
+    <string name="id_title" translatable="false">ID</string>
+    <string name="buying_rate">Buying Rate</string>
+    <string name="amount_title">Amount</string>
+    <string name="total_title">Total</string>
 </resources>
