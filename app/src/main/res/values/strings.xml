@@ -16,4 +16,5 @@
   <string name="buy">Buy</string>
   <string name="sell">Sell</string>
   <string name="invested">Total Investment</string>
+    <string name="main_portfolio">Main Portfolio</string>
 </resources>
