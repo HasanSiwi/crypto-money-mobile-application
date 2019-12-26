@@ -11,4 +11,9 @@
   <string name="full_name_input">Full Name</string>
   <string name="email_input">Email</string>
   <string name="password_input">Password</string>
+  <string name="dashboard">Dashboard</string>
+  <string name="usd_text">USD</string>
+  <string name="buy">Buy</string>
+  <string name="sell">Sell</string>
+  <string name="invested">Total Investment</string>
 </resources>

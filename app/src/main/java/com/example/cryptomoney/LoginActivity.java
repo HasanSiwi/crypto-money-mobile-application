@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
 
 	Button register_button;
 	EditText email, password;
-	private TextView errors;
+	public TextView errors;
 
 	static String user_token = "";
 
