@@ -14,4 +14,8 @@
     <string name="title_home">Home</string>
     <string name="title_profile">Profile</string>
     <string name="title_transactions">Transactions</string>
+    <string name="password_cannot_be_empty">password can\'t be left empty</string>
+    <string name="name_caonnot_be_empty">Full name can\'t be left empty</string>
+    <string name="email_cannot_be_empty">Email can\'t be left empty</string>
+    <string name="password_at_least">password must be at least 8 characters</string>
 </resources>
