@@ -43,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
 			public void onClick(View v) {
 				Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
 				startActivity(intent);
+				finish();
 			}
 		});
 
@@ -85,6 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
 								if (response.getString("success").equals("true")) {
 									Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
 									startActivity(intent);
+									finish();
 								} else {
 									JSONObject result = response.getJSONObject("result");
 									JSONArray names = result.names();

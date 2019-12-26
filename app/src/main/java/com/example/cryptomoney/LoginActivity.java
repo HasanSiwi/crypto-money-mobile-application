@@ -44,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
 		register_button.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				Intent intent = new Intent(v.getContext(), RegisterActivity.class);
+				startActivity(intent);
 				finish();
 			}
 		});
@@ -89,10 +91,9 @@ public class LoginActivity extends AppCompatActivity {
 
 									Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
-									// kill the login and register activities.
-									intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 									// start the new activity
 									startActivity(intent);
+									finish();
 
 								} else {
 									JSONObject result = response.getJSONObject("result");
