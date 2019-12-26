@@ -54,16 +54,16 @@ public class RegisterActivity extends AppCompatActivity {
 
 	public void register_button(View view) {
 		if (password.getText().toString().isEmpty())
-			errors.setText("password can't be left empty");
+			errors.setText(R.string.password_cannot_be_empty);
 
 		else if (full_name.getText().toString().isEmpty())
-			errors.setText("Full name can't be left empty");
+			errors.setText(R.string.name_caonnot_be_empty);
 
 		else if (!isValidEmailAddress(email.getText().toString()) && !email.getText().toString().isEmpty())
-			errors.setText("Email can't be left empty");
+			errors.setText(R.string.email_cannot_be_empty);
 
 		else if (password.getText().toString().length() < 8)
-			errors.setText("password must be at least 8 characters");
+			errors.setText(R.string.password_at_least);
 		else {
 			String url = "http://10.0.2.2:8000/api/register";
 			Map<String, String> params = new HashMap();
