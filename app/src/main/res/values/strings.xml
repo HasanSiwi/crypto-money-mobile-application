@@ -25,4 +25,6 @@
     <string name="buying_rate">Buying Rate</string>
     <string name="amount_title">Amount</string>
     <string name="total_title">Total</string>
+    <string name="add_transaction">Add Transaction</string>
+    <string name="add_currency">Add Currency</string>
 </resources>

@@ -1,10 +1,12 @@
 package com.example.cryptomoney.ui.currencies;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,6 +26,7 @@ import com.example.cryptomoney.MySingelton;
 import com.example.cryptomoney.R;
 import com.example.cryptomoney.ui.home.Currency;
 import com.example.cryptomoney.ui.home.CurrencyAdapter;
+import com.example.cryptomoney.ui.transactions.AddCurrency;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,14 +46,23 @@ public class CurrenciesFragment extends Fragment {
     Currency currency;
     LoginActivity loginActivity = new LoginActivity();
     String user_token = loginActivity.getUser_token();
+    Button add_currency_button;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        currenciesViewModel =
-                ViewModelProviders.of(this).get(CurrenciesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_currencies, container, false);
         listView = root.findViewById(R.id.listview);
         this.getCurrenciesInfo();
+        add_currency_button = root.findViewById(R.id.add_currency_button);
+
+        add_currency_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AddCurrency.class);
+                startActivity(intent);
+            }
+        });
+
         return root;
     }
 
